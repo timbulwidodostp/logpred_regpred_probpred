@@ -1,5 +1,8 @@
-d 'DEA': Data envelopment analysis
+d 'logpred': Logistic and linear and probit regression probabilities Use logpred and regpred and probpred With STATA 18
 d
-f dea.ado
-f dea.sthlp
-f coelli_table6.4.dta
+f logpred.ado
+f logpred.hlp
+f probpred.ado
+f probpred.hlp
+f regpred.ado
+f regpred.hlp
