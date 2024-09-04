@@ -1,0 +1,91 @@
+.-
+help for ^regpred^                                      	(STB-26  sg42)
+.-
+
+Display predictions from linear or logistic regression
+------------------------------------------------------
+
+        { ^regpred^ | ^logpred^ } yvar xvar [^if^ exp]^,^ ^f^rom^(^#^)^ ^t^o^(^#^)^ [ ^i^nc^(^#^)^
+
+                ^a^djust^(^covlist^)^ ^p^oly^(^#^)^ ^nom^odel ^nol^ist ^nop^lot graph_options ] 
+
+
+Description
+-----------
+
+^regpred^ and ^logpred^ display the predicted values and their 95% confidence
+intervals from a linear or logistic regression, respectively, for selected
+values of a continuous ^xvar^.  ^regpred^ displays the fitted values from the 
+regression, while ^logpred^ displays the predicted probabilities.  By default,
+both ^regpred^ and ^logpred^ display the regression estimates and a plot and
+listing of the requested predictions. Other covariates in the model are set to
+their means based on the observations used to estimate the regression.
+
+ 
+Options
+-------
+
+^adjust(^covlist^)^ specifies the other covariates in the model.
+
+^from(^#^)^ specifies the lowest value of ^xvar^ for which a prediction is to be
+    calculated.  This option is required.
+
+^inc(^#^)^ specifies the increment between adjacent values of ^xvar^.  The default
+    increment is 1.    
+
+^nolist^ suppresses the list of predicted values.
+
+^nomodel^ suppresses the display of the estimated regression.
+
+^noplot^ suppresses the graph of predicted values.
+
+^poly(^#^)^ indicates that ^xvar^ enters the model as a polynomial.  Quadratic
+    (^poly(2)^) and cubic (^poly(3)^) models are allowed.  The polynomial terms
+    are created and entered in the regression automatically.
+
+^to(^#^)^ specifies the highest value of ^xvar^ for which a prediction is to be
+    calculated.  This option is required.
+
+graph-options allowed include ^xlabel^, ^ylabel^, ^saving(^filename^)^, and ^titles^.
+
+
+Examples
+--------
+
+ . ^regpred chol age, from(20) to(80) inc(5) adj(fat smk race) noplot^
+
+        Calculates the predicted cholesterol values for 5 year increments
+        of age from 20 years to 80 years (i.e., age=20,25,30,...,80) adjusted
+        for fat in the diet, smoking status, and race; displays model and
+	predicted values but does not display graph.
+
+
+ . ^regpred chol sys, f(60) t(300) i(20) adj(age smk) ylab xlab^
+
+        Calculates the predicted cholesterol values for systolic blood
+        pressure readings from 60 to 300 in 20 mm/hg increments, adjusted
+        for age and smoking status; displays model, graph, and predictions.
+	
+
+ . ^regpred chol age, f(40) t(80) poly(3) adj(sys) xlab ylab nolist^
+
+	Calculates the predicted cholesterol values for 1 year increments
+        of age;	terms for age-squared and age-cubed included in model using
+	the poly(3) option; also adjusted for systolic blood pressure;
+        displays model and graph; does not list predictions and 95% CIs.
+
+
+Author
+------
+
+        Joanne Garrett
+        University of North Carolina
+        FAX:  919-966-2274
+
+
+Also see
+--------
+
+    STB:  STB-26:  sg42
+ Manual:  [5s] logistic, [5s] regress
+On-line:  help for @logistic@, @regress@
