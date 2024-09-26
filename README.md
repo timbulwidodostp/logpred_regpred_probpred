@@ -3,6 +3,8 @@ logistic and linear and probit regression probabilities Use logpred and regpred 
 
 Displaying predicted (predictions) probabilities from logistic and linear and probit regression Use logpred and regpred and probpred With STATA 18
 
+https://www.youtube.com/watch?v=YqsMyLIHXwk
+
 Olah Data Semarang
 
 WA : +6285227746673 (085227746673)
